@@ -1,5 +1,6 @@
 package me.totalfreedom.tfguilds.command;
 
+import java.util.Collections;
 import java.util.List;
 import me.totalfreedom.tfguilds.Common;
 import me.totalfreedom.tfguilds.TFGuilds;
@@ -21,6 +22,7 @@ public class GuildCommand extends Common implements CommandExecutor, TabComplete
         {
             playerSender = (Player)sender;
         }
+
         if (args.length >= 1)
         {
             String name = args[0].toLowerCase();
@@ -35,12 +37,12 @@ public class GuildCommand extends Common implements CommandExecutor, TabComplete
             }
             return true;
         }
-        return false;
+        return true;
     }
 
     @Override
     public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args)
     {
-        return null;
+        return Collections.emptyList();
     }
 }
