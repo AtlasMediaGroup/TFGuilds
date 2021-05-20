@@ -1,5 +1,6 @@
 package me.totalfreedom.tfguilds.command;
 
+import me.totalfreedom.tfguilds.Common;
 import me.totalfreedom.tfguilds.guild.Guild;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -18,9 +19,24 @@ public class DisbandSubCommand extends Common implements SubCommand
             return;
         }
 
-        if (args.length != 1)
+        if (args.length >= 2)
         {
-            sender.sendMessage(USAGE + "/g disband");
+            if (!tfmBridge.isAdmin(sender))
+            {
+                sender.sendMessage(PREFIX + "You do not have permission.");
+                return;
+            }
+
+            Guild guild = Guild.getGuild(playerSender);
+            if (guild == null)
+            {
+                sender.sendMessage(PREFIX + "That guild does not exist.");
+                return;
+            }
+
+            guild.disband();
+            sender.sendMessage(PREFIX + "The guild " + ChatColor.GOLD + guild.getName() + ChatColor.GRAY + " has been disbanded.");
+            Bukkit.broadcastMessage(PREFIX + ChatColor.GOLD + sender.getName() + ChatColor.GRAY + " has disbanded the guild " + ChatColor.GOLD + guild.getName());
             return;
         }
 

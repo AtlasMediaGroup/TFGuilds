@@ -1,5 +1,6 @@
 package me.totalfreedom.tfguilds.command;
 
+import me.totalfreedom.tfguilds.Common;
 import me.totalfreedom.tfguilds.config.ConfigEntry;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -14,7 +15,7 @@ public class ToggleTagsSubCommand extends Common implements SubCommand
     {
         if (!tfmBridge.isAdmin(sender))
         {
-            sender.sendMessage(PREFIX + "You do not have the permission to use this command.");
+            sender.sendMessage(PREFIX + "You do not have the permission.");
             return;
         }
 

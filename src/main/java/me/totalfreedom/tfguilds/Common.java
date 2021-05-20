@@ -1,9 +1,7 @@
-package me.totalfreedom.tfguilds.command;
+package me.totalfreedom.tfguilds;
 
 import java.util.ArrayList;
 import java.util.List;
-import me.totalfreedom.tfguilds.TFGuilds;
-import me.totalfreedom.tfguilds.TFMBridge;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
@@ -21,4 +19,5 @@ public class Common
     public static final TFMBridge tfmBridge = TFGuilds.getPlugin().getTfmBridge();
 
     public static List<Player> GUILD_CHAT = new ArrayList<>();
+    public static List<Player> GUILD_CHAT_SPY = new ArrayList<>();
 }

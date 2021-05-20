@@ -1,8 +1,8 @@
 package me.totalfreedom.tfguilds.listener;
 
-import me.totalfreedom.tfguilds.GUtil;
+import me.totalfreedom.tfguilds.util.GUtil;
 import me.totalfreedom.tfguilds.TFGuilds;
-import me.totalfreedom.tfguilds.command.Common;
+import me.totalfreedom.tfguilds.Common;
 import me.totalfreedom.tfguilds.config.ConfigEntry;
 import me.totalfreedom.tfguilds.guild.Guild;
 import me.totalfreedom.tfguilds.guild.User;

@@ -9,7 +9,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-import me.totalfreedom.tfguilds.GUtil;
+import me.totalfreedom.tfguilds.Common;
+import me.totalfreedom.tfguilds.util.GUtil;
 import me.totalfreedom.tfguilds.TFGuilds;
 import me.totalfreedom.tfguilds.config.ConfigEntry;
 import org.apache.commons.lang.StringUtils;
@@ -579,6 +580,14 @@ public class Guild
         return guilds.get(string) != null;
     }
 
+    public static List<String> getGuildNames()
+    {
+        List<String> names = new ArrayList<>();
+        guilds.values().forEach(guild ->
+                names.add(guild.getName()));
+        return names;
+    }
+
     public String getId()
     {
         return id;
@@ -766,6 +775,14 @@ public class Guild
         if (ConfigEntry.GUILD_CHAT_LOGGING.getBoolean())
         {
             Bukkit.getServer().getLogger().info("[Guild Chat | " + name + "] " + player.getName() + " \u00BB " + message);
+        }
+
+        for (Player p : Bukkit.getOnlinePlayers())
+        {
+            if (Common.GUILD_CHAT_SPY.contains(p) && player != p)
+            {
+                p.sendMessage(GUtil.colorize("&7[&bGuild Chat Spy &7| &b" + name + "&7] " + player.getName() + " &8\u00BB &6") + message);
+            }
         }
     }
 

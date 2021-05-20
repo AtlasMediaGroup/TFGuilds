@@ -1,4 +1,4 @@
-package me.totalfreedom.tfguilds;
+package me.totalfreedom.tfguilds.util;
 
 import java.text.SimpleDateFormat;
 import java.util.Arrays;

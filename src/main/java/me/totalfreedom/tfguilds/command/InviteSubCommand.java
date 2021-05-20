@@ -1,5 +1,6 @@
 package me.totalfreedom.tfguilds.command;
 
+import me.totalfreedom.tfguilds.Common;
 import me.totalfreedom.tfguilds.TFGuilds;
 import me.totalfreedom.tfguilds.guild.Guild;
 import org.bukkit.Bukkit;

@@ -1,6 +1,9 @@
 package me.totalfreedom.tfguilds;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import me.totalfreedom.tfguilds.command.*;
 import me.totalfreedom.tfguilds.config.Config;
@@ -33,7 +36,9 @@ public class TFGuilds extends JavaPlugin
         new JoinListener(this);
         new ChatListener(this);
         loadSubCommands();
+        getCommand("tfguilds").setExecutor(new TFGuildsCommand());
         getCommand("guild").setExecutor(new GuildCommand());
+        getCommand("guildchatspy").setExecutor(new GuildChatSpyCommand());
     }
 
     @Override
@@ -68,6 +73,13 @@ public class TFGuilds extends JavaPlugin
         return subCommands.get(name);
     }
 
+    public List<String> getSubCommands()
+    {
+        List<String> commands = new ArrayList<>(subCommands.keySet());
+        Collections.sort(commands);
+        return commands;
+    }
+
     private void loadSubCommands()
     {
         subCommands.put("create", new CreateSubCommand());
@@ -97,5 +109,7 @@ public class TFGuilds extends JavaPlugin
         subCommands.put("motd", new MotdSubCommand());
         subCommands.put("toggletags", new ToggleTagsSubCommand());
         subCommands.put("tag", new TagSubCommand());
+        subCommands.put("list", new ListSubCommand());
+        subCommands.put("help", new HelpSubCommand());
     }
 }

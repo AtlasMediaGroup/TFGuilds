@@ -1,5 +1,6 @@
 package me.totalfreedom.tfguilds.command;
 
+import me.totalfreedom.tfguilds.Common;
 import me.totalfreedom.tfguilds.guild.User;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;

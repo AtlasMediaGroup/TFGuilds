@@ -1,6 +1,7 @@
 package me.totalfreedom.tfguilds.command;
 
-import me.totalfreedom.tfguilds.GUtil;
+import me.totalfreedom.tfguilds.Common;
+import me.totalfreedom.tfguilds.util.GUtil;
 import me.totalfreedom.tfguilds.guild.Guild;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
