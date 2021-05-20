@@ -23,6 +23,11 @@ public class TFGuilds extends JavaPlugin
     private TFMBridge tfmBridge;
     private Map<String, SubCommand> subCommands = new HashMap<>();
 
+    public static TFGuilds getPlugin()
+    {
+        return plugin;
+    }
+
     @Override
     public void onEnable()
     {
@@ -46,11 +51,6 @@ public class TFGuilds extends JavaPlugin
     {
         config.save();
         this.plugin = null;
-    }
-
-    public static TFGuilds getPlugin()
-    {
-        return plugin;
     }
 
     public Config getConfig()

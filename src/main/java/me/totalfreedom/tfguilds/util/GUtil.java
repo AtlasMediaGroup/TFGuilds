@@ -25,7 +25,7 @@ public class GUtil
             while (matcher.find())
             {
                 String code = matcher.group().replace("&", "");
-                string = string.replace("&" + code, net.md_5.bungee.api.ChatColor.of(code) + "");
+                string = string.replace("&" + code, ChatColor.of(code) + "");
             }
 
             string = ChatColor.translateAlternateColorCodes('&', string);

@@ -51,6 +51,5 @@ public class InfoSubCommand extends Common implements SubCommand
         }
 
         sender.sendMessage(guild.toString());
-        return;
     }
 }

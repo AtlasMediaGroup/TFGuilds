@@ -32,7 +32,7 @@ public class LeaveSubCommand extends Common implements SubCommand
         }
 
         guild.removeMember(playerSender);
-        guild.broadcast(PREFIX + ChatColor.GOLD +sender.getName() + ChatColor.GRAY + " has left the guild.");
+        guild.broadcast(PREFIX + ChatColor.GOLD + sender.getName() + ChatColor.GRAY + " has left the guild.");
         sender.sendMessage(PREFIX + "You have left the guild.");
     }
 }

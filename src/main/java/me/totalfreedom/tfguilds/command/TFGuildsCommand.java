@@ -18,29 +18,26 @@ public class TFGuildsCommand extends Common implements CommandExecutor
             return false;
         }
 
-        if (args.length == 1)
+        if (args.length == 1 && args[0].equalsIgnoreCase("reload"))
         {
-            if (args[0].equalsIgnoreCase("reload"))
+            if (!tfmBridge.isAdmin(sender))
             {
-                if (!tfmBridge.isAdmin(sender))
-                {
-                    sender.sendMessage(PREFIX + "You do not have the permission.");
-                    return true;
-                }
-
-                try
-                {
-                    TFGuilds.getPlugin().getConfig().load();
-                    TFGuilds.getPlugin().getLogger().info("Successfully reload the configuration file.");
-                    sender.sendMessage(PREFIX + "The configuration file have been reloaded successfully.");
-                    return true;
-                }
-                catch (Exception ex)
-                {
-                    ex.printStackTrace();
-                }
+                sender.sendMessage(PREFIX + "You do not have the permission.");
                 return true;
             }
+
+            try
+            {
+                TFGuilds.getPlugin().getConfig().load();
+                TFGuilds.getPlugin().getLogger().info("Successfully reload the configuration file.");
+                sender.sendMessage(PREFIX + "The configuration file have been reloaded successfully.");
+                return true;
+            }
+            catch (Exception ex)
+            {
+                ex.printStackTrace();
+            }
+            return true;
         }
 
         sender.sendMessage(ChatColor.AQUA + "TFGuilds " + ChatColor.GRAY + "is a plugin which allows players to create their own guilds, provide guild chat, guild teleportation and many more.");

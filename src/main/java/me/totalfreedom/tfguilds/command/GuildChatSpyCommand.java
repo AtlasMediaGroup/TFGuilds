@@ -25,16 +25,16 @@ public class GuildChatSpyCommand extends Common implements CommandExecutor
             return true;
         }
 
-        Player player = (Player) sender;
+        Player player = (Player)sender;
         if (GUILD_CHAT_SPY.contains(player))
         {
             GUILD_CHAT_SPY.remove(player);
-            sender.sendMessage(PREFIX + ChatColor.GOLD  + "Disabled " + ChatColor.GRAY + "guild chat spy.");
+            sender.sendMessage(PREFIX + ChatColor.GOLD + "Disabled " + ChatColor.GRAY + "guild chat spy.");
             return true;
         }
 
         GUILD_CHAT_SPY.add(player);
-        sender.sendMessage(PREFIX + ChatColor.GOLD  + "Enabled " + ChatColor.GRAY + "guild chat spy.");
+        sender.sendMessage(PREFIX + ChatColor.GOLD + "Enabled " + ChatColor.GRAY + "guild chat spy.");
         return true;
     }
 }

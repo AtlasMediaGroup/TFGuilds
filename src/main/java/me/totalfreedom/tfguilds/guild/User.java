@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 import me.totalfreedom.tfguilds.TFGuilds;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 public class User
@@ -36,27 +35,6 @@ public class User
         return user;
     }
 
-    public int getId()
-    {
-        return id;
-    }
-
-    public UUID getUuid()
-    {
-        return uuid;
-    }
-
-    public boolean displayTag()
-    {
-        return tag;
-    }
-
-    public void setDisplayTag(boolean tag)
-    {
-        this.tag = tag;
-        save();
-    }
-
     public static void loadAll()
     {
         Connection connection = TFGuilds.getPlugin().getSQL().getConnection();
@@ -76,37 +54,6 @@ public class User
         {
             ex.printStackTrace();
         }
-    }
-
-    public void save(boolean newSave)
-    {
-        Connection connection = TFGuilds.getPlugin().getSQL().getConnection();
-        try
-        {
-            PreparedStatement statement = newSave ? connection.prepareStatement("INSERT INTO users VALUES (?, ?, ?)")
-                    : connection.prepareStatement("UPDATE users SET tag=? WHERE id=?");
-            if (newSave)
-            {
-                statement.setString(1, uuid.toString());
-                statement.setInt(2, id);
-                statement.setBoolean(3, tag);
-            }
-            else
-            {
-                statement.setBoolean(1, tag);
-                statement.setInt(2, id);
-            }
-            statement.execute();
-        }
-        catch (Exception ex)
-        {
-            ex.printStackTrace();
-        }
-    }
-
-    public void save()
-    {
-        save(false);
     }
 
     public static boolean hasUser(int id)
@@ -138,5 +85,57 @@ public class User
     public static User getUserFromPlayer(Player player)
     {
         return getUserFromUuid(player.getUniqueId());
+    }
+
+    public int getId()
+    {
+        return id;
+    }
+
+    public UUID getUuid()
+    {
+        return uuid;
+    }
+
+    public boolean displayTag()
+    {
+        return tag;
+    }
+
+    public void setDisplayTag(boolean tag)
+    {
+        this.tag = tag;
+        save();
+    }
+
+    public void save(boolean newSave)
+    {
+        Connection connection = TFGuilds.getPlugin().getSQL().getConnection();
+        try
+        {
+            PreparedStatement statement = newSave ? connection.prepareStatement("INSERT INTO users VALUES (?, ?, ?)")
+                    : connection.prepareStatement("UPDATE users SET tag=? WHERE id=?");
+            if (newSave)
+            {
+                statement.setString(1, uuid.toString());
+                statement.setInt(2, id);
+                statement.setBoolean(3, tag);
+            }
+            else
+            {
+                statement.setBoolean(1, tag);
+                statement.setInt(2, id);
+            }
+            statement.execute();
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void save()
+    {
+        save(false);
     }
 }

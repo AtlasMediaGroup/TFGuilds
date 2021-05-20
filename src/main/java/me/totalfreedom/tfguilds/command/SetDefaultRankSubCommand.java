@@ -1,8 +1,8 @@
 package me.totalfreedom.tfguilds.command;
 
 import me.totalfreedom.tfguilds.Common;
-import me.totalfreedom.tfguilds.util.GUtil;
 import me.totalfreedom.tfguilds.guild.Guild;
+import me.totalfreedom.tfguilds.util.GUtil;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -66,6 +66,6 @@ public class SetDefaultRankSubCommand extends Common implements SubCommand
         }
 
         guild.setDefaultRank(name);
-        sender.sendMessage(PREFIX +"Successfully set " + ChatColor.GOLD + name + ChatColor.GRAY+ " as the default rank of your guild.");
+        sender.sendMessage(PREFIX + "Successfully set " + ChatColor.GOLD + name + ChatColor.GRAY + " as the default rank of your guild.");
     }
 }
